@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RL blog</title>
-    <link>http://localhost:1313/</link>
+    <link>https://amineandam04.github.io/</link>
     <description>Recent content on RL blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Jul 2024 19:52:42 +0100</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jul 2024 19:52:42 +0100</lastBuildDate><atom:link href="https://amineandam04.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VDN:  Value Decomposition Networks for cooperative multi-agent learning</title>
-      <link>http://localhost:1313/blog/vdn/</link>
+      <link>https://amineandam04.github.io/blog/vdn/</link>
       <pubDate>Wed, 03 Jul 2024 19:52:42 +0100</pubDate>
       
-      <guid>http://localhost:1313/blog/vdn/</guid>
+      <guid>https://amineandam04.github.io/blog/vdn/</guid>
       
       <description>The VDN paper presents an algorithm to solve cooperative multi-agent reinforcement learning with common rewards (team reward). In this settings, several agents are working together to maximise the (discounted) future rewards. Each agent receive a local obervation ( partial-observabiliy) that helps him take apropriate actions. It&amp;rsquo;s worth mentioning that the VDN algorithm considers only discrete actions.
 The cooperative MARL problem can be solved using single-agent RL algorithms such as DQN or PPO by considering a single-agent whoses state space is the contatenated state of the agents and an action space that is the combination of the action spaces of the agents.</description>
