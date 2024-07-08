@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on RL blog</title>
-    <link>http://localhost:1313/blog/</link>
+    <link>https://amineandam04.github.io/blog/</link>
     <description>Recent content in Blog on RL blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Feb 2024 13:23:34 +0100</lastBuildDate><atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Feb 2024 13:23:34 +0100</lastBuildDate><atom:link href="https://amineandam04.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VDN:  Value Decomposition Networks for cooperative multi-agent learning</title>
-      <link>http://localhost:1313/blog/vdn/</link>
+      <link>https://amineandam04.github.io/blog/vdn/</link>
       <pubDate>Wed, 03 Jul 2024 19:52:42 +0100</pubDate>
       
-      <guid>http://localhost:1313/blog/vdn/</guid>
+      <guid>https://amineandam04.github.io/blog/vdn/</guid>
       
       <description>To DO: use utility function instead of q function The VDN paper introduces an algorithm designed to address cooperative multi-agent reinforcement learning with common rewards, where all agents receive the same reward. In this setting, multiple agents work together to maximize the discounted future rewards. Each agent receives a local observation that helps them take appropriate actions. It&amp;rsquo;s worth noting that the VDN algorithm considers only discrete actions. The cooperative multi-agent reinforcement learning problem can be formally defined using a Dec-POMDP.</description>
       

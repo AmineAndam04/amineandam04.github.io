@@ -1,7 +1,7 @@
 {
     "name": "RL blog",
     "short_name": "RL blog",
-    "start_url": "http://localhost:1313/",
+    "start_url": "https://amineandam04.github.io/",
     "theme_color": "#434648",
     "background_color": "#ffffff",
     "display": "standalone",
