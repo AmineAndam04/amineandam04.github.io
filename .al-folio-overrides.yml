@@ -7,4 +7,4 @@ overrides:
     upstream_path: templates/cv/render.liquid
     upstream_sha256: eaff444ab8d7407008e422ecc4be3c56c586fe2397951d54dbfb6aef7fc2eac0
     local_sha256: d6f02c4316ffcbda428e1ea32e5116c2adf987dfbd712ae85ad62a0d49539322
-    acknowledged_at: '2026-11-04'
+    acknowledged_at: "2026-11-04"
