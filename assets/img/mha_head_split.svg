@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="874"
+   height="405"
+   viewBox="0 0 874 405"
+   role="img"
+   font-family="Inter, Helvetica, Arial, sans-serif"
+   version="1.1"
+   id="svg77"
+   sodipodi:docname="mha_head_split_v3.svg"
+   inkscape:version="1.3.1 (91b66b0, 2023-11-16)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:c2pa="http://c2pa.org/manifest">
+  <sodipodi:namedview
+     id="namedview77"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.1319149"
+     inkscape:cx="506.2218"
+     inkscape:cy="314.95301"
+     inkscape:window-width="1392"
+     inkscape:window-height="948"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg77" />
+  <title
+     id="title1">How Q is split into h heads</title>
+  <desc
+     id="desc1">Q of shape B, T, d_model is split along its last dimension into h chunks of size d_h, giving B, T, h, d_h. Swapping the T and h axes gives B, h, T, d_h, so each head is a separate T by d_h matrix.</desc>
+  <defs
+     id="defs1">
+    <marker
+       id="arrow"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <path
+         d="M 1,1 9,5 1,9 Z"
+         fill="#64748b"
+         id="path1" />
+    </marker>
+  </defs>
+  <text
+     x="206.20978"
+     y="14.515038"
+     font-size="15px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text1">Q</text>
+  <text
+     x="217.00978"
+     y="14.515038"
+     font-size="13px"
+     font-weight="400"
+     fill="#64748b"
+     xml:space="preserve"
+     id="text2">   (T, d</text>
+  <text
+     x="252.86147"
+     y="16.852444"
+     font-size="10px"
+     font-weight="400"
+     fill="#64748b"
+     xml:space="preserve"
+     id="text3">model</text>
+  <text
+     x="282.75281"
+     y="14.294172"
+     font-size="13px"
+     font-weight="400"
+     fill="#64748b"
+     xml:space="preserve"
+     id="text4">)</text>
+  <text
+     x="236.60979"
+     y="38.515038"
+     font-size="13px"
+     font-weight="600"
+     fill="#888780"
+     xml:space="preserve"
+     id="text5">d</text>
+  <text
+     x="244.10979"
+     y="41.515038"
+     font-size="10px"
+     font-weight="600"
+     fill="#888780"
+     xml:space="preserve"
+     id="text6">model</text>
+  <line
+     x1="45.409775"
+     y1="46.515038"
+     x2="467.40976"
+     y2="46.515038"
+     stroke="#888780"
+     stroke-width="1.5"
+     marker-start="url(#arrow)"
+     marker-end="url(#arrow)"
+     id="line6" />
+  <rect
+     x="41.409775"
+     y="60.515038"
+     width="430"
+     height="100"
+     fill="#f1efe8"
+     stroke="#5f5e5a"
+     stroke-width="1.5"
+     id="rect6" />
+  <line
+     x1="41.409775"
+     y1="85.515038"
+     x2="471.40976"
+     y2="85.515038"
+     stroke="#5f5e5a"
+     stroke-width="1"
+     opacity="0.55"
+     id="line7" />
+  <line
+     x1="41.409775"
+     y1="110.51504"
+     x2="471.40976"
+     y2="110.51504"
+     stroke="#5f5e5a"
+     stroke-width="1"
+     opacity="0.55"
+     id="line8" />
+  <line
+     x1="41.409775"
+     y1="135.51505"
+     x2="471.40976"
+     y2="135.51505"
+     stroke="#5f5e5a"
+     stroke-width="1"
+     opacity="0.55"
+     id="line9" />
+  <circle
+     cx="256.40976"
+     cy="117.01504"
+     r="1.8"
+     fill="#5f5e5a"
+     id="circle9" />
+  <circle
+     cx="256.40976"
+     cy="123.01504"
+     r="1.8"
+     fill="#5f5e5a"
+     id="circle10" />
+  <circle
+     cx="256.40976"
+     cy="129.01505"
+     r="1.8"
+     fill="#5f5e5a"
+     id="circle11" />
+  <text
+     x="17.109772"
+     y="78.015038"
+     font-size="14px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text11">q</text>
+  <text
+     x="25.209778"
+     y="82.015038"
+     font-size="10px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text12">1</text>
+  <text
+     x="14.509773"
+     y="103.01504"
+     font-size="14px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text13">q</text>
+  <text
+     x="22.609772"
+     y="107.01504"
+     font-size="10px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text14">2</text>
+  <text
+     x="14.509773"
+     y="153.01505"
+     font-size="14px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text15">q</text>
+  <text
+     x="22.609772"
+     y="157.01505"
+     font-size="10px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text16">T</text>
+  <circle
+     cx="17.409775"
+     cy="117.01504"
+     r="1.8"
+     fill="#888780"
+     id="circle16" />
+  <circle
+     cx="17.409775"
+     cy="123.01504"
+     r="1.8"
+     fill="#888780"
+     id="circle17" />
+  <circle
+     cx="17.409775"
+     cy="129.01505"
+     r="1.8"
+     fill="#888780"
+     id="circle18" />
+  <line
+     x1="493.40976"
+     y1="64.515038"
+     x2="493.40976"
+     y2="156.51505"
+     stroke="#888780"
+     stroke-width="1.5"
+     marker-start="url(#arrow)"
+     marker-end="url(#arrow)"
+     id="line18" />
+  <text
+     x="505.40976"
+     y="115.51504"
+     font-size="13px"
+     font-weight="600"
+     fill="#888780"
+     id="text18">T</text>
+  <line
+     x1="256.40976"
+     y1="168.51505"
+     x2="256.40976"
+     y2="214.51505"
+     stroke="#64748b"
+     stroke-width="1.5"
+     marker-end="url(#arrow)"
+     id="line19" />
+  <text
+     x="272.40976"
+     y="195.51505"
+     font-size="12px"
+     fill="#888780"
+     id="text19">split into h chunks</text>
+  <text
+     x="210.20976"
+     y="240.51505"
+     font-size="15px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text20">Q</text>
+  <text
+     x="221.00978"
+     y="240.51505"
+     font-size="13px"
+     font-weight="400"
+     fill="#64748b"
+     xml:space="preserve"
+     id="text21">   (T, h, d</text>
+  <text
+     x="271.80585"
+     y="243.82739"
+     font-size="10px"
+     font-weight="400"
+     fill="#64748b"
+     xml:space="preserve"
+     id="text22">h</text>
+  <text
+     x="280.60583"
+     y="240.82739"
+     font-size="13px"
+     font-weight="400"
+     fill="#64748b"
+     xml:space="preserve"
+     id="text23">)</text>
+  <rect
+     x="41.409775"
+     y="254.51505"
+     width="130"
+     height="100"
+     fill="#e1f5ee"
+     stroke="#0f6e56"
+     stroke-width="1.5"
+     id="rect23" />
+  <line
+     x1="41.409775"
+     y1="279.51505"
+     x2="171.40977"
+     y2="279.51505"
+     stroke="#0f6e56"
+     stroke-width="1"
+     opacity="0.55"
+     id="line23" />
+  <line
+     x1="41.409775"
+     y1="304.51505"
+     x2="171.40977"
+     y2="304.51505"
+     stroke="#0f6e56"
+     stroke-width="1"
+     opacity="0.55"
+     id="line24" />
+  <line
+     x1="41.409775"
+     y1="329.51505"
+     x2="171.40977"
+     y2="329.51505"
+     stroke="#0f6e56"
+     stroke-width="1"
+     opacity="0.55"
+     id="line25" />
+  <circle
+     cx="106.40977"
+     cy="311.01505"
+     r="1.8"
+     fill="#0f6e56"
+     id="circle25" />
+  <circle
+     cx="106.40977"
+     cy="317.01505"
+     r="1.8"
+     fill="#0f6e56"
+     id="circle26" />
+  <circle
+     cx="106.40977"
+     cy="323.01505"
+     r="1.8"
+     fill="#0f6e56"
+     id="circle27" />
+  <text
+     x="106.40977"
+     y="271.51505"
+     text-anchor="middle"
+     font-size="12px"
+     font-weight="600"
+     fill="#04342c"
+     id="text27">head 1</text>
+  <path
+     d="m 45.409774,362.51504 v 6 H 167.40977 v -6"
+     fill="none"
+     stroke="#0f6e56"
+     stroke-width="1.5"
+     id="path27" />
+  <text
+     x="98.209778"
+     y="386.51505"
+     font-size="13px"
+     font-weight="600"
+     fill="#0f6e56"
+     xml:space="preserve"
+     id="text28">d</text>
+  <text
+     x="105.80977"
+     y="389.51505"
+     font-size="10px"
+     font-weight="600"
+     fill="#0f6e56"
+     xml:space="preserve"
+     id="text29">h</text>
+  <rect
+     x="171.40977"
+     y="254.51505"
+     width="130"
+     height="100"
+     fill="#eeedfe"
+     stroke="#534ab7"
+     stroke-width="1.5"
+     id="rect29" />
+  <line
+     x1="171.40977"
+     y1="279.51505"
+     x2="301.40976"
+     y2="279.51505"
+     stroke="#534ab7"
+     stroke-width="1"
+     opacity="0.55"
+     id="line29" />
+  <line
+     x1="171.40977"
+     y1="304.51505"
+     x2="301.40976"
+     y2="304.51505"
+     stroke="#534ab7"
+     stroke-width="1"
+     opacity="0.55"
+     id="line30" />
+  <line
+     x1="171.40977"
+     y1="329.51505"
+     x2="301.40976"
+     y2="329.51505"
+     stroke="#534ab7"
+     stroke-width="1"
+     opacity="0.55"
+     id="line31" />
+  <circle
+     cx="236.40977"
+     cy="311.01505"
+     r="1.8"
+     fill="#534ab7"
+     id="circle31" />
+  <circle
+     cx="236.40977"
+     cy="317.01505"
+     r="1.8"
+     fill="#534ab7"
+     id="circle32" />
+  <circle
+     cx="236.40977"
+     cy="323.01505"
+     r="1.8"
+     fill="#534ab7"
+     id="circle33" />
+  <text
+     x="236.40977"
+     y="271.51505"
+     text-anchor="middle"
+     font-size="12px"
+     font-weight="600"
+     fill="#26215c"
+     id="text33">head 2</text>
+  <path
+     d="m 175.40977,362.51504 v 6 h 122 v -6"
+     fill="none"
+     stroke="#534ab7"
+     stroke-width="1.5"
+     id="path33" />
+  <text
+     x="228.20976"
+     y="386.51505"
+     font-size="13px"
+     font-weight="600"
+     fill="#534ab7"
+     xml:space="preserve"
+     id="text34">d</text>
+  <text
+     x="235.80977"
+     y="389.51505"
+     font-size="10px"
+     font-weight="600"
+     fill="#534ab7"
+     xml:space="preserve"
+     id="text35">h</text>
+  <rect
+     x="341.40976"
+     y="254.51505"
+     width="130"
+     height="100"
+     fill="#faeeda"
+     stroke="#854f0b"
+     stroke-width="1.5"
+     id="rect35" />
+  <line
+     x1="341.40976"
+     y1="279.51505"
+     x2="471.40976"
+     y2="279.51505"
+     stroke="#854f0b"
+     stroke-width="1"
+     opacity="0.55"
+     id="line35" />
+  <line
+     x1="341.40976"
+     y1="304.51505"
+     x2="471.40976"
+     y2="304.51505"
+     stroke="#854f0b"
+     stroke-width="1"
+     opacity="0.55"
+     id="line36" />
+  <line
+     x1="341.40976"
+     y1="329.51505"
+     x2="471.40976"
+     y2="329.51505"
+     stroke="#854f0b"
+     stroke-width="1"
+     opacity="0.55"
+     id="line37" />
+  <circle
+     cx="406.40976"
+     cy="311.01505"
+     r="1.8"
+     fill="#854f0b"
+     id="circle37" />
+  <circle
+     cx="406.40976"
+     cy="317.01505"
+     r="1.8"
+     fill="#854f0b"
+     id="circle38" />
+  <circle
+     cx="406.40976"
+     cy="323.01505"
+     r="1.8"
+     fill="#854f0b"
+     id="circle39" />
+  <text
+     x="406.40976"
+     y="271.51505"
+     text-anchor="middle"
+     font-size="12px"
+     font-weight="600"
+     fill="#412402"
+     id="text39">head h</text>
+  <path
+     d="m 345.40977,362.51504 v 6 h 122 v -6"
+     fill="none"
+     stroke="#854f0b"
+     stroke-width="1.5"
+     id="path39" />
+  <text
+     x="398.20975"
+     y="386.51505"
+     font-size="13px"
+     font-weight="600"
+     fill="#854f0b"
+     xml:space="preserve"
+     id="text40">d</text>
+  <text
+     x="405.80975"
+     y="389.51505"
+     font-size="10px"
+     font-weight="600"
+     fill="#854f0b"
+     xml:space="preserve"
+     id="text41">h</text>
+  <rect
+     x="301.40976"
+     y="254.51505"
+     width="40"
+     height="100"
+     fill="none"
+     stroke="#888780"
+     stroke-width="1"
+     stroke-dasharray="5, 4"
+     id="rect41" />
+  <circle
+     cx="314.40976"
+     cy="304.51505"
+     r="2"
+     fill="#888780"
+     id="circle41" />
+  <circle
+     cx="321.40976"
+     cy="304.51505"
+     r="2"
+     fill="#888780"
+     id="circle42" />
+  <circle
+     cx="328.40976"
+     cy="304.51505"
+     r="2"
+     fill="#888780"
+     id="circle43" />
+  <text
+     x="17.109772"
+     y="272.01505"
+     font-size="14px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text43">q</text>
+  <text
+     x="25.209778"
+     y="276.01505"
+     font-size="10px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text44">1</text>
+  <text
+     x="14.509773"
+     y="297.01505"
+     font-size="14px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text45">q</text>
+  <text
+     x="22.609772"
+     y="301.01505"
+     font-size="10px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text46">2</text>
+  <text
+     x="14.509773"
+     y="347.01505"
+     font-size="14px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text47">q</text>
+  <text
+     x="22.609772"
+     y="351.01505"
+     font-size="10px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text48">T</text>
+  <circle
+     cx="17.409775"
+     cy="311.01505"
+     r="1.8"
+     fill="#888780"
+     id="circle48" />
+  <circle
+     cx="17.409775"
+     cy="317.01505"
+     r="1.8"
+     fill="#888780"
+     id="circle49" />
+  <circle
+     cx="17.409775"
+     cy="323.01505"
+     r="1.8"
+     fill="#888780"
+     id="circle50" />
+  <line
+     x1="485.40976"
+     y1="328.51505"
+     x2="573.40979"
+     y2="328.51505"
+     stroke="#64748b"
+     stroke-width="1.5"
+     marker-end="url(#arrow)"
+     id="line50" />
+  <text
+     x="529.40979"
+     y="302.51505"
+     text-anchor="middle"
+     font-size="12px"
+     fill="#888780"
+     id="text50">swap the</text>
+  <text
+     x="529.40979"
+     y="317.51505"
+     text-anchor="middle"
+     font-size="12px"
+     fill="#888780"
+     id="text51">T and h axes</text>
+  <text
+     x="670.51056"
+     y="208.71054"
+     font-size="15px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text52">Q</text>
+  <text
+     x="681.31055"
+     y="208.71054"
+     font-size="13px"
+     font-weight="400"
+     fill="#64748b"
+     xml:space="preserve"
+     id="text53">   (h, T, d</text>
+  <text
+     x="731.79431"
+     y="211.39819"
+     font-size="10px"
+     font-weight="400"
+     fill="#64748b"
+     xml:space="preserve"
+     id="text54">h</text>
+  <text
+     x="740.5943"
+     y="208.39819"
+     font-size="13px"
+     font-weight="400"
+     fill="#64748b"
+     xml:space="preserve"
+     id="text55">)</text>
+  <rect
+     x="656.71057"
+     y="226.71054"
+     width="160"
+     height="100"
+     rx="3"
+     fill="#faeeda"
+     stroke="#854f0b"
+     stroke-width="1.5"
+     id="rect55" />
+  <text
+     x="736.71057"
+     y="240.71054"
+     text-anchor="middle"
+     font-size="12px"
+     font-weight="600"
+     fill="#412402"
+     id="text56">head h</text>
+  <rect
+     x="636.71057"
+     y="246.71054"
+     width="160"
+     height="100"
+     rx="3"
+     fill="#eeedfe"
+     stroke="#534ab7"
+     stroke-width="1.5"
+     id="rect56" />
+  <text
+     x="716.71057"
+     y="260.71054"
+     text-anchor="middle"
+     font-size="12px"
+     font-weight="600"
+     fill="#26215c"
+     id="text57">head 2</text>
+  <rect
+     x="616.71057"
+     y="266.71054"
+     width="160"
+     height="100"
+     rx="3"
+     fill="#e1f5ee"
+     stroke="#0f6e56"
+     stroke-width="1.5"
+     id="rect57" />
+  <line
+     x1="616.71057"
+     y1="291.71054"
+     x2="776.71057"
+     y2="291.71054"
+     stroke="#0f6e56"
+     stroke-width="1"
+     opacity="0.55"
+     id="line57" />
+  <line
+     x1="616.71057"
+     y1="316.71054"
+     x2="776.71057"
+     y2="316.71054"
+     stroke="#0f6e56"
+     stroke-width="1"
+     opacity="0.55"
+     id="line58" />
+  <line
+     x1="616.71057"
+     y1="341.71054"
+     x2="776.71057"
+     y2="341.71054"
+     stroke="#0f6e56"
+     stroke-width="1"
+     opacity="0.55"
+     id="line59" />
+  <circle
+     cx="696.71057"
+     cy="324.21054"
+     r="1.6"
+     fill="#0f6e56"
+     id="circle59" />
+  <circle
+     cx="696.71057"
+     cy="329.21054"
+     r="1.6"
+     fill="#0f6e56"
+     id="circle60" />
+  <circle
+     cx="696.71057"
+     cy="334.21054"
+     r="1.6"
+     fill="#0f6e56"
+     id="circle61" />
+  <text
+     x="696.71057"
+     y="282.71054"
+     text-anchor="middle"
+     font-size="12px"
+     font-weight="600"
+     fill="#04342c"
+     id="text61">head 1</text>
+  <line
+     x1="602.71057"
+     y1="270.71054"
+     x2="602.71057"
+     y2="362.71054"
+     stroke="#888780"
+     stroke-width="1.5"
+     marker-start="url(#arrow)"
+     marker-end="url(#arrow)"
+     id="line61" />
+  <text
+     x="590.71057"
+     y="320.71054"
+     text-anchor="end"
+     font-size="13px"
+     font-weight="600"
+     fill="#888780"
+     id="text62">T</text>
+  <path
+     d="m 620.71052,374.71053 v 6 h 152 v -6"
+     fill="none"
+     stroke="#0f6e56"
+     stroke-width="1.5"
+     id="path62" />
+  <text
+     x="688.51056"
+     y="397.71054"
+     font-size="13px"
+     font-weight="600"
+     fill="#0f6e56"
+     xml:space="preserve"
+     id="text63">d</text>
+  <text
+     x="696.1106"
+     y="400.71054"
+     font-size="10px"
+     font-weight="600"
+     fill="#0f6e56"
+     xml:space="preserve"
+     id="text64">h</text>
+  <line
+     x1="788.71057"
+     y1="360.71054"
+     x2="846.71057"
+     y2="302.71054"
+     stroke="#888780"
+     stroke-width="1.5"
+     marker-start="url(#arrow)"
+     marker-end="url(#arrow)"
+     id="line64" />
+  <text
+     x="856.71057"
+     y="298.71054"
+     font-size="13px"
+     font-weight="600"
+     fill="#888780"
+     id="text65">h</text>
+  <text
+     x="629.18646"
+     y="131.59775"
+     font-size="15px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text71">d</text>
+  <text
+     x="637.88647"
+     y="134.59775"
+     font-size="11px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text72">h</text>
+  <text
+     x="647.2865"
+     y="131.59775"
+     font-size="15px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text73"> = d</text>
+  <text
+     x="673.08649"
+     y="134.59775"
+     font-size="11px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text74">model</text>
+  <text
+     x="708.08649"
+     y="131.59775"
+     font-size="15px"
+     font-weight="600"
+     fill="#2c2c2a"
+     xml:space="preserve"
+     id="text75"> / h</text>
+  <metadata
+     id="metadata77">
+    <c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo3NGM0ODkwZi00YTMyLTQwZTUtYWI1Yi0yNjZjNzIyZjY5NjQAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaI+ZzPPo2ZnI+kZ1YiORO4wAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpiYmYwOWY2Yy1lMTJjLTRhYmUtOTk4ZS05Yjk3M2Q1NGNlYjZscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoT0nLBp9VEryG+jDpwx6X3gAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggvvSUz1Ku3jIaNF29GlQ9g/8T2h4ZsmbuhBO4dVTiJgCkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaH3vA3ZMFPJweQA/BzMU3ecAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIJOcBPeLqRro9gynT6DaMX/OUwUiQKYu3j4/WYq2Y0ktZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GSu2Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjc0YzQ4OTBmLTRhMzItNDBlNS1hYjViLTI2NmM3MjJmNjk2NC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmUxYjI1NTg4LWQ5Y2YtNGExNy04ODI3LTIzNWRhOTI2ZDVlN3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCC+9JTPUq7eMho0Xb0aVD2D/xPaHhmyZu6EE7h1VOImAKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg0/enfB1tULxakrvpFYxg0lKGrTbh098hBhFTo9R5jlmiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFgglR5pQzwk1N0j4mqN7TTsLHRTEY3f2dgtySeiQiUqEe10Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQNPbaxpmo1ktiwFHjujSgKPJ0iMcCoMkpUor+Y8zQwKfQTeS3OFLrun+8G/2ZphqO7shFV7zo4G/dYOKLGfC63o=</c2pa:manifest>
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>How Q is split into h heads</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

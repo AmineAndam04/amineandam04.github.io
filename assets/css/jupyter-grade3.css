@@ -450,6 +450,7 @@ h6,
 pre,
 code,
 form,
+legend,
 input,
 button,
 textarea,
@@ -492,6 +493,26 @@ div.cell.selected:before {
   left: 0px;
   width: 0px;
   height: 100%;
+}
+
+div.prompt,
+.prompt {
+  font-family: monospace, monospace;
+  font-size: 9pt !important;
+  font-weight: normal;
+  color: #828892;
+  line-height: 170%;
+  padding: 0px;
+  padding-top: 4px;
+  padding-left: 0px;
+  padding-right: 1px;
+  text-align: right !important;
+  min-width: 11.5ex !important;
+  width: 11.5ex !important;
+}
+
+div.cell.selected .prompt {
+  top: 0;
 }
 
 pre,
@@ -622,4 +643,28 @@ body :focus .MathJax {
 .MathJax:focus,
 body :focus .MathJax {
   display: inline-block !important;
+}
+
+.completions {
+  position: absolute;
+  z-index: 110;
+  overflow: hidden;
+  border: medium solid rgba(240, 147, 43, 0.5);
+  box-shadow: none;
+  line-height: 1;
+}
+
+.completions select {
+  background: #ededed;
+  background-color: #ededed;
+  outline: none;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 2px;
+  overflow: auto;
+  font-family: monospace, monospace;
+  font-size: 11pt;
+  color: #303030;
+  width: auto;
 }

@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transformer parameter explorer</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #24343b;
+        --muted: #68777d;
+        --line: #d7e0e3;
+        --surface: #ffffff;
+        --quiet: #f4f7f8;
+        --green: #197b67;
+        --green-soft: #e5f4ee;
+        --purple: #7560ba;
+        --purple-soft: #f0edfc;
+        --orange: #b36240;
+        --orange-soft: #faeee7;
+        --gold: #a77828;
+        --gold-soft: #fcf3df;
+        --error: #b53838;
+      }
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+        --ink: #e4eced;
+        --muted: #a5b4b9;
+        --line: #3a484d;
+        --surface: #1c2428;
+        --quiet: #252f34;
+        --green: #82cdb5;
+        --green-soft: #223c35;
+        --purple: #baa9ed;
+        --purple-soft: #332e46;
+        --orange: #e4a387;
+        --orange-soft: #433129;
+        --gold: #dbbc7e;
+        --gold-soft: #3d3627;
+        --error: #ffabab;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: transparent;
+        color: var(--ink);
+        font:
+          15px/1.5 system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+      }
+      button,
+      input {
+        font: inherit;
+      }
+      button,
+      summary {
+        cursor: pointer;
+      }
+      button {
+        color: inherit;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      sub {
+        font-size: 0.75em;
+      }
+      .explorer {
+        max-width: 640px;
+        padding: 12px 4px;
+        margin: auto;
+      }
+      .controls {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .field {
+        min-width: 0;
+      }
+      .field label {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-bottom: 7px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .symbol {
+        color: var(--muted);
+        font-weight: 400;
+      }
+      input[type="number"] {
+        width: 100%;
+        min-width: 0;
+        min-height: 40px;
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        color: var(--ink);
+        background: var(--surface);
+        font-size: 16px;
+        font-weight: 500;
+        font-variant-numeric: tabular-nums;
+      }
+      input[aria-invalid="true"] {
+        border-color: var(--error);
+      }
+      .ffn-controls {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 7px 14px;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .text-button {
+        border: 0;
+        padding: 7px 0;
+        background: none;
+        color: var(--purple);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .custom-ffn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .custom-ffn input {
+        width: 104px;
+        min-height: 40px;
+        padding: 7px 10px;
+        font-size: 16px;
+      }
+      .validation {
+        margin: 6px 0 0;
+        color: var(--error);
+        font-size: 13px;
+      }
+      .summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        padding: 13px 0 16px;
+        margin-top: 6px;
+        border-top: 1px solid var(--line);
+      }
+      .summary-top {
+        display: block;
+      }
+      .summary-label {
+        margin: 0;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .total {
+        display: block;
+        margin-left: auto;
+        font-size: clamp(26px, 5vw, 32px);
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: -0.045em;
+        font-variant-numeric: tabular-nums;
+      }
+      .diagram {
+        max-width: 560px;
+        margin: auto;
+      }
+      .endpoint {
+        text-align: center;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .connector {
+        position: relative;
+        height: 18px;
+        width: 100%;
+      }
+      .connector::before {
+        content: "";
+        position: absolute;
+        left: calc(50% - 0.5px);
+        top: 0;
+        bottom: 7px;
+        width: 1px;
+        background: var(--muted);
+        opacity: 0.6;
+      }
+      .connector::after {
+        content: "";
+        position: absolute;
+        bottom: 1px;
+        left: calc(50% - 4px);
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 6px solid var(--muted);
+        opacity: 0.7;
+      }
+      .layer {
+        position: relative;
+        z-index: 1;
+        width: calc(100% - 84px);
+        max-width: 424px;
+        margin: auto;
+        border-radius: 11px;
+        background: var(--node-soft);
+        color: var(--ink);
+        border: 1px solid color-mix(in srgb, var(--node-color) 30%, transparent);
+      }
+      .layer.green {
+        --node-color: var(--green);
+        --node-soft: var(--green-soft);
+      }
+      .layer.purple {
+        --node-color: var(--purple);
+        --node-soft: var(--purple-soft);
+      }
+      .layer.orange {
+        --node-color: var(--orange);
+        --node-soft: var(--orange-soft);
+      }
+      .layer.gold {
+        --node-color: var(--gold);
+        --node-soft: var(--gold-soft);
+      }
+      .layer summary {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 10px;
+        list-style: none;
+        min-height: 48px;
+        padding: 9px 14px;
+      }
+      .layer summary::-webkit-details-marker {
+        display: none;
+      }
+      .node-heading {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 7px;
+        font-size: 13px;
+        font-weight: 500;
+      }
+      .expand {
+        color: var(--node-color);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+      }
+      .layer[open] .expand {
+        transform: rotate(45deg);
+      }
+      .node-number {
+        margin-top: 0;
+        font-size: 20px;
+        line-height: 1.25;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        font-variant-numeric: tabular-nums;
+        overflow-wrap: anywhere;
+      }
+      .node-number small {
+        display: none;
+      }
+      .formula {
+        margin: 0 18px 14px;
+        padding-top: 11px;
+        border-top: 1px solid color-mix(in srgb, var(--node-color) 20%, transparent);
+        color: var(--muted);
+        font-size: 12px;
+        overflow-wrap: anywhere;
+      }
+      .norm {
+        width: calc(100% - 116px);
+        max-width: 364px;
+      }
+      .norm summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 4px 12px;
+        min-height: 38px;
+        padding: 7px 13px;
+      }
+      .norm .node-number {
+        margin-top: 0;
+        font-size: 16px;
+      }
+      .block {
+        position: relative;
+        padding: 39px 0 0;
+        border: 1px dashed var(--line);
+        border-radius: 18px;
+      }
+      .block-heading {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        top: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .repeat {
+        border-radius: 20px;
+        background: var(--quiet);
+        padding: 3px 11px;
+        font-size: 12px;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+      .junction {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        place-items: center;
+        width: 19px;
+        height: 19px;
+        margin: auto;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: var(--surface);
+        font-size: 14px;
+        line-height: 1;
+      }
+      .junction + .connector {
+        height: 18px;
+      }
+      .residuals {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: visible;
+        color: var(--muted);
+      }
+      .residual-path {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.2;
+        opacity: 0.65;
+      }
+      .block-total {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 5px 16px;
+        padding: 10px 14px;
+        margin-top: 10px;
+        border-top: 1px dashed var(--line);
+        background: var(--surface);
+        border-radius: 0 0 18px 18px;
+      }
+      .block-total-label {
+        font-size: 12px;
+      }
+      .block-total-number {
+        font-size: 19px;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        font-variant-numeric: tabular-nums;
+      }
+      .block-total small {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 400;
+      }
+      .block-mix {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 13px;
+        width: 100%;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .block-mix span::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        margin-right: 5px;
+        border-radius: 50%;
+        background: var(--swatch);
+      }
+      .block-mix b {
+        font-weight: 500;
+        color: var(--ink);
+        font-variant-numeric: tabular-nums;
+      }
+      .footnote {
+        margin: 12px 0 0;
+        text-align: center;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+      @media (max-width: 420px) {
+        .explorer {
+          padding: 10px 2px;
+        }
+        .controls {
+          gap: 9px;
+        }
+        .field label {
+          font-size: 12px;
+        }
+        .symbol {
+          display: none;
+        }
+        input[type="number"] {
+          padding: 9px 7px;
+          font-size: 16px;
+        }
+        .layer {
+          width: calc(100% - 54px);
+        }
+        .norm {
+          width: calc(100% - 74px);
+        }
+        .layer summary {
+          padding: 8px 12px;
+        }
+        .node-heading {
+          font-size: 12px;
+        }
+        .node-number {
+          font-size: 18px;
+        }
+        .norm .node-number {
+          font-size: 16px;
+        }
+        .norm summary {
+          padding: 7px 12px;
+        }
+        .block-heading {
+          left: 12px;
+          right: 12px;
+        }
+        .block-total {
+          padding: 10px 12px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="explorer" id="parameter-explorer" aria-label="Interactive transformer parameter explorer">
+      <div class="controls" aria-label="Model dimensions">
+        <div class="field">
+          <label for="model-width"
+            >Model width <span class="symbol">d<sub>model</sub></span></label
+          ><input id="model-width" type="number" min="32" max="16384" step="1" value="512" inputmode="numeric" />
+        </div>
+        <div class="field">
+          <label for="vocab-size">Vocab size <span class="symbol">|V|</span></label
+          ><input id="vocab-size" type="number" min="1" max="1000000" step="1" value="10000" inputmode="numeric" />
+        </div>
+        <div class="field">
+          <label for="block-count">Blocks <span class="symbol">L</span></label
+          ><input id="block-count" type="number" min="1" max="256" step="1" value="1" inputmode="numeric" />
+        </div>
+      </div>
+      <div class="ffn-controls">
+        <span id="ffn-description">FFN width: 1,344 · automatic</span>
+        <button class="text-button" id="ffn-toggle" type="button" aria-expanded="false" aria-controls="custom-ffn">Set custom d<sub>ff</sub></button>
+        <div class="custom-ffn" id="custom-ffn" hidden>
+          <label for="ffn-width">d<sub>ff</sub></label
+          ><input id="ffn-width" type="number" min="1" max="131072" step="1" value="1344" inputmode="numeric" />
+        </div>
+      </div>
+      <p class="validation" id="validation" role="alert" hidden></p>
+
+      <section class="summary" aria-label="Total model parameters">
+        <div class="summary-top">
+          <p class="summary-label">Trainable parameters</p>
+          <span class="summary-label" id="model-description">1 transformer block</span>
+        </div>
+        <output class="total" id="model-total" aria-label="Total trainable parameters">13,354,496</output>
+      </section>
+
+      <div class="diagram" aria-label="Transformer architecture with live parameter counts">
+        <div class="endpoint">Input token IDs</div>
+        <div class="connector" aria-hidden="true"></div>
+        <details class="layer green" data-category="embedding">
+          <summary>
+            <div class="node-heading">Token embeddings <span class="expand" aria-hidden="true">+</span></div>
+            <div class="node-number"><span data-count="embedding"></span> <small>parameters</small></div>
+          </summary>
+          <div class="formula" data-formula="embedding"></div>
+        </details>
+        <div class="connector" aria-hidden="true"></div>
+
+        <section class="block" id="transformer-stack" aria-label="One transformer block">
+          <div class="block-heading"><span>Transformer block</span><span class="repeat" id="repeat-count">× 1</span></div>
+          <svg class="residuals" id="residuals" aria-hidden="true">
+            <defs>
+              <marker id="residual-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="currentColor" stroke-width="1.5" />
+              </marker>
+            </defs>
+            <path class="residual-path" id="attention-skip" marker-end="url(#residual-arrow)"></path>
+            <path class="residual-path" id="ffn-skip" marker-end="url(#residual-arrow)"></path>
+          </svg>
+          <details class="layer gold norm" id="norm-one" data-category="norm">
+            <summary><span class="node-heading">Normalization</span><span class="node-number" data-count="norm"></span></summary>
+            <div class="formula" data-formula="norm"></div>
+          </details>
+          <div class="connector" aria-hidden="true"></div>
+          <details class="layer purple" data-category="attention">
+            <summary>
+              <div class="node-heading">Multi-head attention <span class="expand" aria-hidden="true">+</span></div>
+              <div class="node-number"><span data-count="attention"></span> <small>parameters</small></div>
+            </summary>
+            <div class="formula" data-formula="attention"></div>
+          </details>
+          <div class="connector" aria-hidden="true"></div>
+          <div class="junction" id="attention-add" aria-label="Residual addition, no trainable parameters">+</div>
+          <div class="connector" aria-hidden="true"></div>
+          <details class="layer gold norm" id="norm-two" data-category="norm">
+            <summary><span class="node-heading">Normalization</span><span class="node-number" data-count="norm"></span></summary>
+            <div class="formula" data-formula="norm"></div>
+          </details>
+          <div class="connector" aria-hidden="true"></div>
+          <details class="layer orange" data-category="ffn">
+            <summary>
+              <div class="node-heading">Feed-forward network <span class="expand" aria-hidden="true">+</span></div>
+              <div class="node-number"><span data-count="ffn"></span> <small>parameters</small></div>
+            </summary>
+            <div class="formula" data-formula="ffn"></div>
+          </details>
+          <div class="connector" aria-hidden="true"></div>
+          <div class="junction" id="ffn-add" aria-label="Residual addition, no trainable parameters">+</div>
+          <div class="block-total">
+            <div>
+              <div class="block-total-label">One block, total</div>
+              <output class="block-total-number" id="one-block-total"></output>
+            </div>
+            <small id="all-blocks-total"></small>
+            <div class="block-mix">
+              <span style="--swatch: var(--purple)">Attention <b data-count="attention"></b></span
+              ><span style="--swatch: var(--orange)">FFN <b data-count="ffn"></b></span
+              ><span style="--swatch: var(--gold)">Norms <b data-count="blockNorms"></b></span>
+            </div>
+          </div>
+        </section>
+
+        <div class="connector" aria-hidden="true"></div>
+        <details class="layer gold norm" data-category="norm">
+          <summary><span class="node-heading">Final normalization</span><span class="node-number" data-count="norm"></span></summary>
+          <div class="formula" data-formula="norm"></div>
+        </details>
+        <div class="connector" aria-hidden="true"></div>
+        <details class="layer green" data-category="head">
+          <summary>
+            <div class="node-heading">Language-model head <span class="expand" aria-hidden="true">+</span></div>
+            <div class="node-number"><span data-count="head"></span> <small>parameters</small></div>
+          </summary>
+          <div class="formula" data-formula="head"></div>
+        </details>
+        <div class="connector" aria-hidden="true"></div>
+        <div class="endpoint" id="output-description">10,000 next-token logits per position</div>
+      </div>
+      <p class="footnote">Counts follow the model above. Select a layer to see its calculation.</p>
+      <p class="sr-only" id="live-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <noscript><p>Enable JavaScript to explore the parameter counts.</p></noscript>
+    </main>
+    <script>
+      (() => {
+        "use strict";
+        const root = document.getElementById("parameter-explorer");
+        const select = (selector) => root.querySelector(selector);
+        const all = (selector) => root.querySelectorAll(selector);
+        const format = new Intl.NumberFormat("en-US");
+        const fields = { d: select("#model-width"), vocab: select("#vocab-size"), blocks: select("#block-count"), ff: select("#ffn-width") };
+        let custom = false;
+        let announceTimer;
+        let layoutFrame;
+
+        function automaticWidth(d) {
+          const quotient = d / 24;
+          const floor = Math.floor(quotient);
+          const rounded = quotient - floor === 0.5 ? floor + (floor % 2) : Math.round(quotient);
+          return 64 * rounded;
+        }
+
+        function drawResiduals() {
+          const block = select("#transformer-stack");
+          const bounds = block.getBoundingClientRect();
+          const svg = select("#residuals");
+          svg.setAttribute("viewBox", `0 0 ${bounds.width} ${bounds.height}`);
+          for (const [startId, endId, pathId] of [
+            ["norm-one", "attention-add", "attention-skip"],
+            ["norm-two", "ffn-add", "ffn-skip"],
+          ]) {
+            const start = select(`#${startId}`).getBoundingClientRect();
+            const end = select(`#${endId}`).getBoundingClientRect();
+            const x = start.left + start.width / 2 - bounds.left;
+            const y = start.top - bounds.top - 11;
+            const edge = bounds.width - (bounds.width < 400 ? 12 : 24);
+            select(`#${pathId}`).setAttribute(
+              "d",
+              `M ${x} ${y} H ${edge} V ${end.top + end.height / 2 - bounds.top} H ${end.right - bounds.left + 2}`
+            );
+          }
+          try {
+            if (window.frameElement) {
+              const height = Math.ceil(root.getBoundingClientRect().height) + 2;
+              if (Math.abs(window.frameElement.getBoundingClientRect().height - height) > 1) window.frameElement.style.height = `${height}px`;
+            }
+          } catch (_) {
+            /* Standalone and cross-origin previews keep their own height. */
+          }
+        }
+
+        function scheduleLayout() {
+          cancelAnimationFrame(layoutFrame);
+          layoutFrame = requestAnimationFrame(drawResiduals);
+        }
+
+        function update(announce = true) {
+          const values = {};
+          let invalid;
+          for (const [name, field] of Object.entries(fields)) {
+            const value = Number(field.value);
+            const valid =
+              (!custom && name === "ff") ||
+              (field.value !== "" && Number.isInteger(value) && value >= Number(field.min) && value <= Number(field.max));
+            field.setAttribute("aria-invalid", String(!valid));
+            if (!valid && !invalid) invalid = { name, field };
+            values[name] = value;
+          }
+          const validation = select("#validation");
+          validation.hidden = !invalid;
+          if (invalid) {
+            const label = { d: "Model width", vocab: "Vocabulary size", blocks: "Block count", ff: "FFN width" }[invalid.name];
+            validation.textContent = `${label}: enter a whole number from ${format.format(Number(invalid.field.min))} to ${format.format(Number(invalid.field.max))}.`;
+            scheduleLayout();
+            return;
+          }
+          const { d, vocab, blocks } = values;
+          const ff = custom ? values.ff : automaticWidth(d);
+          const counts = { embedding: vocab * d, attention: 4 * d * d, ffn: 3 * ff * d, norm: d, blockNorms: 2 * d, head: vocab * d };
+          const block = counts.attention + counts.ffn + counts.blockNorms;
+          const total = counts.embedding + blocks * block + counts.norm + counts.head;
+          const formulas = {
+            embedding: `|V| × d_model = ${format.format(vocab)} × ${format.format(d)} = ${format.format(counts.embedding)}`,
+            attention: `4 × d_model² = 4 × ${format.format(d)}² = ${format.format(counts.attention)}`,
+            ffn: `3 × d_ff × d_model = 3 × ${format.format(ff)} × ${format.format(d)} = ${format.format(counts.ffn)}`,
+            norm: `d_model = ${format.format(d)}`,
+            head: `|V| × d_model = ${format.format(vocab)} × ${format.format(d)} = ${format.format(counts.head)}`,
+          };
+          all("[data-count]").forEach((element) => {
+            element.textContent = format.format(counts[element.dataset.count]);
+          });
+          all("[data-formula]").forEach((element) => {
+            element.textContent = formulas[element.dataset.formula];
+          });
+          select("#model-total").textContent = format.format(total);
+          select("#one-block-total").textContent = format.format(block);
+          select("#all-blocks-total").textContent = `${format.format(blocks * block)} across ${blocks} ${blocks === 1 ? "block" : "blocks"}`;
+          select("#repeat-count").textContent = `× ${blocks}`;
+          select("#model-description").textContent = `${blocks} transformer ${blocks === 1 ? "block" : "blocks"}`;
+          select("#ffn-description").textContent = `FFN width: ${format.format(ff)} · ${custom ? "custom" : "automatic"}`;
+          select("#output-description").textContent = `${format.format(vocab)} next-token logits per position`;
+          root.dataset.total = String(total);
+          root.dataset.blockTotal = String(block);
+          root.dataset.ffnWidth = String(ff);
+          if (announce) {
+            clearTimeout(announceTimer);
+            announceTimer = setTimeout(() => {
+              select("#live-status").textContent =
+                `${format.format(total)} trainable parameters. ${format.format(block)} per block. FFN width ${format.format(ff)}.`;
+            }, 250);
+          }
+          scheduleLayout();
+        }
+
+        Object.values(fields).forEach((field) => field.addEventListener("input", () => update()));
+        select("#ffn-toggle").addEventListener("click", () => {
+          custom = !custom;
+          select("#custom-ffn").hidden = !custom;
+          select("#ffn-toggle").setAttribute("aria-expanded", String(custom));
+          select("#ffn-toggle").innerHTML = custom ? "Use automatic width" : "Set custom d<sub>ff</sub>";
+          update();
+        });
+        all(".layer").forEach((layer) => {
+          layer.addEventListener("toggle", scheduleLayout);
+        });
+
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+        function syncTheme() {
+          let theme = systemTheme.matches ? "dark" : "light";
+          try {
+            if (window.parent !== window) {
+              const parentRoot = window.parent.document.documentElement;
+              const explicit = parentRoot.getAttribute("data-theme") || parentRoot.getAttribute("data-bs-theme");
+              if (explicit === "dark" || explicit === "light") theme = explicit;
+            }
+          } catch (_) {
+            /* Cross-origin embedding uses the system theme. */
+          }
+          document.documentElement.dataset.theme = theme;
+        }
+        systemTheme.addEventListener("change", syncTheme);
+        try {
+          if (window.parent !== window)
+            new MutationObserver(syncTheme).observe(window.parent.document.documentElement, {
+              attributes: true,
+              attributeFilter: ["data-theme", "data-bs-theme"],
+            });
+        } catch (_) {
+          /* Standalone viewing needs no parent observer. */
+        }
+        new ResizeObserver(scheduleLayout).observe(root);
+        syncTheme();
+        update(false);
+      })();
+    </script>
+  </body>
+</html>

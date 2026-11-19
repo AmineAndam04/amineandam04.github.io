@@ -1,0 +1,23 @@
+configuration,method,temperature,top_k,top_p,seed,n_prompts,grammar_mean,creativity_mean,consistency_mean,plot_mean,overall_mean,source_file
+"top_p, T=0.7, p=0.975",top_p,0.7,,0.975,42,6,8.33,3.50,6,5.50,5.83,top_p_t0.7_k100_p0.975_seed42.json
+"top_p, T=0.9, p=0.9",top_p,0.9,,0.9,42,6,8.33,3.67,5.67,5.33,5.75,top_p_t0.9_k100_p0.9_seed42.json
+"random, T=0.7",random,0.7,,,42,6,8.17,3.67,6,4.83,5.67,random_t0.7_k100_p0.8_seed42.json
+"top_p, T=0.7, p=0.95",top_p,0.7,,0.95,42,6,8.67,2.67,6.50,4.67,5.62,top_p_t0.7_k100_p0.95_seed42.json
+"top_p, T=0.9, p=0.95",top_p,0.9,,0.95,42,6,8.33,4.17,5.33,4.67,5.62,top_p_t0.9_k100_p0.95_seed42.json
+"top_p, T=0.7, p=0.9",top_p,0.7,,0.9,42,6,8.67,2.83,6,4.50,5.50,top_p_t0.7_k100_p0.9_seed42.json
+"top_p, T=0.9, p=0.975",top_p,0.9,,0.975,42,6,7.33,3.33,5.50,4.83,5.25,top_p_t0.9_k100_p0.975_seed42.json
+"top_k, T=0.7, k=40",top_k,0.7,40,,42,6,7.67,2.67,5.67,4.50,5.12,top_k_t0.7_k40_p0.8_seed42.json
+"top_k, T=0.7, k=50",top_k,0.7,50,,42,6,7.67,2.67,5.67,4.50,5.12,top_k_t0.7_k50_p0.8_seed42.json
+"top_k, T=0.7, k=640",top_k,0.7,640,,42,6,7.67,2.67,5.67,4.50,5.12,top_k_t0.7_k640_p0.8_seed42.json
+"random, T=0.9",random,0.9,,,42,6,7.83,3,5.17,4,5.00,random_t0.9_k100_p0.8_seed42.json
+"top_p, T=1.0, p=0.9",top_p,1.0,,0.9,42,6,8.17,3,4.67,4.17,5.00,top_p_t1.0_k100_p0.9_seed42.json
+"top_k, T=0.9, k=40",top_k,0.9,40,,42,6,7.50,2.83,5,4.17,4.88,top_k_t0.9_k40_p0.8_seed42.json
+"top_k, T=0.9, k=50",top_k,0.9,50,,42,6,7.33,2.83,5,4.17,4.83,top_k_t0.9_k50_p0.8_seed42.json
+"top_p, T=1.0, p=0.975",top_p,1.0,,0.975,42,6,7.33,3.17,4.67,4,4.79,top_p_t1.0_k100_p0.975_seed42.json
+greedy,greedy,,,,42,6,8.83,2.17,4.17,3.83,4.75,greedy_t1.0_k100_p0.8_seed42.json
+"top_k, T=0.9, k=640",top_k,0.9,640,,42,6,6.83,3.17,4.67,4.17,4.71,top_k_t0.9_k640_p0.8_seed42.json
+"top_k, T=1.0, k=50",top_k,1.0,50,,42,6,7,2.83,4.33,3.33,4.38,top_k_t1.0_k50_p0.8_seed42.json
+"random, T=1.0",random,1.0,,,42,6,6.50,3.33,4,3.33,4.29,random_t1.0_k100_p0.8_seed42.json
+"top_p, T=1.0, p=0.95",top_p,1.0,,0.95,42,6,7.17,3,3.67,3.17,4.25,top_p_t1.0_k100_p0.95_seed42.json
+"top_k, T=1.0, k=40",top_k,1.0,40,,42,6,6.67,3,3.83,3.17,4.17,top_k_t1.0_k40_p0.8_seed42.json
+"top_k, T=1.0, k=640",top_k,1.0,640,,42,6,6.50,3,3.83,3,4.08,top_k_t1.0_k640_p0.8_seed42.json
