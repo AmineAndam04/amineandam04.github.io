@@ -1,0 +1,91 @@
+{
+  "animation": false,
+  "aria": {
+    "enabled": true,
+    "description": "Top-p at p equals 0.95: creativity, consistency, and overall score versus temperature."
+  },
+  "color": ["#4477aa", "#ee7733", "#228833", "#aa3377"],
+  "tooltip": {
+    "trigger": "axis"
+  },
+  "legend": {
+    "top": 5
+  },
+  "grid": {
+    "top": 65,
+    "left": 48,
+    "right": 20,
+    "bottom": 65
+  },
+  "xAxis": {
+    "type": "value",
+    "axisLabel": {
+      "interval": 0
+    },
+    "name": "Temperature",
+    "nameLocation": "middle",
+    "nameGap": 30,
+    "min": 0.7,
+    "max": 1.0,
+    "interval": 0.1
+  },
+  "yAxis": {
+    "type": "value",
+    "min": 0,
+    "max": 10,
+    "name": "Score / 10"
+  },
+  "series": [
+    {
+      "name": "Creativity",
+      "type": "line",
+      "symbolSize": 8,
+      "smooth": false,
+      "lineStyle": {
+        "color": "#ee7733"
+      },
+      "itemStyle": {
+        "color": "#ee7733"
+      },
+      "data": [
+        [0.7, 2.67],
+        [0.9, 4.17],
+        [1.0, 3.0]
+      ]
+    },
+    {
+      "name": "Consistency",
+      "type": "line",
+      "symbolSize": 8,
+      "smooth": false,
+      "lineStyle": {
+        "color": "#228833"
+      },
+      "itemStyle": {
+        "color": "#228833"
+      },
+      "data": [
+        [0.7, 6.5],
+        [0.9, 5.33],
+        [1.0, 3.67]
+      ]
+    },
+    {
+      "name": "Overall",
+      "type": "line",
+      "symbolSize": 8,
+      "smooth": false,
+      "lineStyle": {
+        "color": "#aa3377"
+      },
+      "itemStyle": {
+        "color": "#aa3377"
+      },
+      "data": [
+        [0.7, 5.62],
+        [0.9, 5.62],
+        [1.0, 4.25]
+      ]
+    }
+  ]
+}
