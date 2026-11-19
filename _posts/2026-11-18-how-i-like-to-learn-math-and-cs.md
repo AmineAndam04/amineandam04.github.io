@@ -4,7 +4,7 @@ title: How I like to learn math and computer science
 description: The explanations, implementations, and tensor shapes that help me understand a topic.
 date: 2026-11-18
 tags: learning math computer-science
-giscus_comments: false
+giscus_comments: true
 authors:
   - name: Amine Andam
     affiliations:
