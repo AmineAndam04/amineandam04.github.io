@@ -1,7 +1,9 @@
 ---
 layout: distill
+og_image: /assets/img/tinyjxllm-p1-social.png
 title: LLMs in JAX from scratch - Part 1
-# description: an example of a distill-style blog post and main elements
+description: >
+  Building a small language model in pure JAX: pytrees, network layers, AdamW, data loading, and a training loop.
 tags: llm
 giscus_comments: true
 date: 2026-11-04

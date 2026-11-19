@@ -1,5 +1,6 @@
 ---
 layout: distill
+og_image: /assets/img/learning-math-cs-social.png
 title: How I like to learn math and computer science
 description: The explanations, implementations, and tensor shapes that help me understand a topic.
 date: 2026-11-18
